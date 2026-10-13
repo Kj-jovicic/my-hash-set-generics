@@ -1,0 +1,21 @@
+Vorname;Nachname;Geburtsdatum;Fach;Wochenstunden
+Anna;Huber;12.03.1980;Informatik;18
+#Das ist nur eine Kommentarzeile
+José;Rojas;05.11.1975;Mathematik;20
+
+Shirin;Karimi;23.07.1990;Deutsch;22
+Lukas;Gruber;30.01.1985;Physik;16
+Fehler;ZuWenigFelder;01.01.2000;Mathematik
+Sofia;Petrović;14.09.1992;Englisch;20
+Mohammed;Yilmaz;02.06.1978;Informatik;12
+Fehler;ZuVieleFelder;01.01.2000;Mathematik;20;Extra
+Camila;Fernández;19.12.1988;Mathematik;14
+Ole;Nilsen;08.04.1983;Englisch;18
+#Noch eine Kommentarzeile mitten in der Datei
+Katharina;Bauer;27.02.1970;Deutsch;22
+Diego;Silva;11.08.1995;Physik;10
+
+Elif;Demir;03.10.1987;Informatik;18
+Thomas;Wagner;21.05.1972;Mathematik;20
+Leyla;Ahmadi;16.01.1993;Deutsch;10
+Jakob;Steiner;09.07.1981;Englisch;12

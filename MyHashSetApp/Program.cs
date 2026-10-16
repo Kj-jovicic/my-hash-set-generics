@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        MyHashSet set = new MyHashSet();
+        MyHashSet<Lehrperson> set = new MyHashSet<Lehrperson>();
 
         // TODO 1) Datei-Einlesen: lehrpersonen.txt mit using und StreamReader einlesen.
         // Kopfzeile, Kommentarzeilen (#), falsche Zeilen und leere Zeilen überspringen.

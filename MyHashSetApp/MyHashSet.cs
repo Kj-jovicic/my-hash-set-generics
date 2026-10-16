@@ -5,18 +5,18 @@ namespace MyHashSetApp;
 /// Collisions are resolved with linear probing (try the next slot).
 /// Empty slots are null. Starts with 8 slots, doubles when full, up to 32. No Remove.
 /// </summary>
-public class MyHashSet
+public class MyHashSet<T>
 {
     private const int StartCapacity = 8;
     private const int MaxCapacity = 32;
 
-    private Lehrperson[] _slots = new Lehrperson[StartCapacity];
+    private T[] _slots = new T[StartCapacity];
 
     public int Count { get; private set; }
     public int Capacity => _slots.Length;
 
     /// <summary>Adds the item. Returns false if it was already in the set.</summary>
-    public bool Add(Lehrperson item)
+    public bool Add(T item)
     {
         int index = FindIndex(item);
 
@@ -37,7 +37,7 @@ public class MyHashSet
         return true;
     }
 
-    public bool Contains(Lehrperson item)
+    public bool Contains(T item)
     {
         int index = FindIndex(item);
         return index != -1 && _slots[index] != null;
@@ -68,7 +68,7 @@ public class MyHashSet
     /// where it would be inserted. Returns -1 if the array is full
     /// and does not contain the item.
     /// </summary>
-    private int FindIndex(Lehrperson item)
+    private int FindIndex(T item)
     {
         // GetHashCode can be negative, but an array index cannot.
         int start = Math.Abs(item.GetHashCode()) % _slots.Length;
@@ -87,10 +87,10 @@ public class MyHashSet
     /// <summary>Doubles the array. Every item gets a new slot, because hash % length changes.</summary>
     private void Grow()
     {
-        Lehrperson[] oldSlots = _slots;
-        _slots = new Lehrperson[oldSlots.Length * 2];
+        T[] oldSlots = _slots;
+        _slots = new T[oldSlots.Length * 2];
 
-        foreach (Lehrperson item in oldSlots)
+        foreach (T item in oldSlots)
         {
             if (item != null)
                 _slots[FindIndex(item)] = item;

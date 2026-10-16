@@ -18,7 +18,7 @@ class Program
         set.Add(shirin);
 
         Console.WriteLine($"\nCount: {set.Count}, Capacity: {set.Capacity}");
-        Console.WriteLine(set); // ToString: alle Slots, Index 0 zuerst
+        Console.WriteLine(set); 
 
         
     }

@@ -1,10 +1,6 @@
 namespace MyHashSetApp;
 
-/// <summary>
-/// A deliberately simple hash set: one array, one item per slot.
-/// Collisions are resolved with linear probing (try the next slot).
-/// Empty slots are null. Starts with 8 slots, doubles when full, up to 32. No Remove.
-/// </summary>
+
 public class MyHashSet<T>
 {
     private const int StartCapacity = 8;
@@ -15,12 +11,12 @@ public class MyHashSet<T>
     public int Count { get; private set; }
     public int Capacity => _slots.Length;
 
-    /// <summary>Adds the item. Returns false if it was already in the set.</summary>
+  
     public bool Add(T item)
     {
         int index = FindIndex(item);
 
-        if (index == -1) // array is full and the item is not in it
+        if (index == -1)
         {
             if (_slots.Length == MaxCapacity)
                 throw new InvalidOperationException("The set is full.");
@@ -30,7 +26,7 @@ public class MyHashSet<T>
         }
 
         if (_slots[index] != null)
-            return false; // duplicate
+            return false; 
 
         _slots[index] = item;
         Count++;
@@ -43,11 +39,7 @@ public class MyHashSet<T>
         return index != -1 && _slots[index] != null;
     }
 
-    // TODO: IEnumerable<Lehrperson> implementieren, damit man mit foreach über das Set iterieren kann.
-    // Von hinten nach vorne iterieren (letzter Index zuerst), leere Slots (null) überspringen.
-    // Dazu einen eigenen Enumerator (z.B. MyHashSetEnumerator) schreiben.
-
-    /// <summary>Shows every slot, index 0 first, e.g. "[3] Huber Anna, Informatik, 12.03.1980".</summary>
+    
     public override string ToString()
     {
         string result = "";
@@ -63,14 +55,10 @@ public class MyHashSet<T>
         return result;
     }
 
-    /// <summary>
-    /// Returns the slot where the item lives, or the first empty slot
-    /// where it would be inserted. Returns -1 if the array is full
-    /// and does not contain the item.
-    /// </summary>
+    
     private int FindIndex(T item)
     {
-        // GetHashCode can be negative, but an array index cannot.
+       
         int start = Math.Abs(item.GetHashCode()) % _slots.Length;
 
         for (int step = 0; step < _slots.Length; step++)
@@ -84,7 +72,7 @@ public class MyHashSet<T>
         return -1;
     }
 
-    /// <summary>Doubles the array. Every item gets a new slot, because hash % length changes.</summary>
+    
     private void Grow()
     {
         T[] oldSlots = _slots;

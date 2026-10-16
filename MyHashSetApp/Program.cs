@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        MyHashSet set = new MyHashSet();
+        MyHashSet<Lehrperson> set = new MyHashSet<Lehrperson>();
 
         
         Lehrperson anna = new Lehrperson("Anna", "Huber", new DateTime(1980, 3, 12), Unterrichtsfach.Informatik, 18);
